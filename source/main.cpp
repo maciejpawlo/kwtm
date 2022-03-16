@@ -2,8 +2,17 @@
 #include<trygonometria.h>
 #include<cmath>
 #include<iostream>
- int main()
-{ /*...*/ 
+ int main(int argc, char* argv[])
+{ /*...*/
+  #ifdef BUILD_TESTS
+    std::cout << "RUNNING TESTS \n";
+    if (argc >= 2) {
+        double deg = strtod(argv[1], NULL);
+        double result = degreemath::cos(deg);
+        std::cout << result << "\n";
+    }
+  #endif
+
   #ifdef USE_TRIGONOMETRY_DEGREE
     std::cout << "USE_TRIGONOMETRY_DEGREE set as TRUE \n";
     double sinRes = degreemath::sin(90);
